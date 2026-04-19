@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# azamat.dev — Personal Portfolio
+
+Portfolio site for Azamat Altymyshev, Senior Fullstack Developer. Built with Next.js 16 App Router, next-intl (EN/RU), and plain CSS with custom properties. No UI framework, no Tailwind.
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16.2 (App Router, React 19) |
+| i18n | next-intl 4 — `/en` and `/ru` routes |
+| Styling | Global CSS + CSS custom properties |
+| Fonts | Geist Sans + JetBrains Mono via `next/font` |
+| Icons | `simple-icons` (brand SVGs) |
+| Email | Nodemailer + Gmail SMTP (App Password) |
+| Language | TypeScript strict |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx                  # Root layout (fonts)
+│   ├── api/contact/route.ts        # Contact form email endpoint
+│   └── [locale]/
+│       ├── layout.tsx              # Header + Footer
+│       ├── page.tsx                # Home
+│       ├── projects/page.tsx       # Projects grid + filter
+│       ├── projects/[slug]/page.tsx# Project detail
+│       ├── about/page.tsx          # About + experience + stack
+│       └── contact/page.tsx        # Contact links + form
+├── components/
+│   ├── Header/                     # Nav + locale switcher + mobile menu
+│   ├── Footer/                     # Footer with socials
+│   ├── Terminal/                   # Typewriter terminal animation (client)
+│   ├── ProjectCard/                # Full + compact card variants
+│   ├── ContactForm/                # Contact form (client, hits /api/contact)
+│   └── TechIcon/                   # Brand SVG icons from simple-icons
+├── data/
+│   ├── projects.ts                 # Project list with EN/RU content
+│   ├── experience.ts               # Timeline + tech stack with EN/RU
+│   └── site.ts                     # Contact links, footer socials
+├── i18n/
+│   ├── routing.ts                  # next-intl locales config
+│   └── messages/en.json|ru.json    # All UI translations
+├── styles/globals.css              # Single CSS file — vars, layout, components
+└── middleware.ts                   # next-intl locale detection + redirect
+```
 
 ## Getting Started
 
-First, run the development server:
+```bash
+npm install
+```
+
+Create `.env.local`:
+
+```env
+SMTP_USER=your@gmail.com
+SMTP_PASS=your-gmail-app-password
+```
+
+> Gmail App Password: Google Account → Security → 2-Step Verification → App passwords
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — redirects to `/en` by default.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Description |
+|---|---|
+| `/en` / `/ru` | Home — terminal animation, featured projects, about teaser |
+| `/en/projects` | All projects with type filter (Commercial / Pet) |
+| `/en/projects/[slug]` | Project detail page |
+| `/en/about` | Bio, work experience timeline, tech stack |
+| `/en/contact` | Contact cards + contact form |
 
-## Learn More
+## i18n
 
-To learn more about Next.js, take a look at the following resources:
+All user-facing strings live in `src/i18n/messages/en.json` and `ru.json`. Project descriptions, features, and long descriptions also have `descRu`/`featuresRu` fields in `src/data/projects.ts`. The `getLocalizedProjects(locale)` helper handles merging.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Locale is detected from the URL prefix. Default locale is `en` (no redirect). Russian is at `/ru/...`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a Project
 
-## Deploy on Vercel
+In `src/data/projects.ts`, add an entry to the `projects` array:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+{
+  id: 'my-project',          // used as URL slug for detail page
+  name: 'My Project',
+  initials: 'MP',
+  desc: 'Short description (EN)',
+  descRu: 'Short description (RU)',
+  stack: ['React', 'TypeScript'],
+  type: 'commercial',        // 'pet' | 'commercial'
+  year: '2024',
+  role: 'Senior Frontend Developer',
+  status: 'Production',
+  colors: ['#1a1a2e', '#2a1a3e'], // gradient for card header
+  image: '/projects/my-project.png', // place in public/projects/
+  demoUrl: 'https://example.com',    // external → card links here
+  sourceUrl: null,
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If `demoUrl` is a real URL (not `'#'`), clicking the card opens it in a new tab. Otherwise it links to the detail page.
+
+## Contact Form
+
+POST to `/api/contact` with `{ name, email, message }`. Sends an email via Gmail SMTP to the address in `SMTP_USER`. Uses `replyTo` set to the sender's email.
+
+## Build
+
+```bash
+npm run build
+npm start
+```
+
+TypeScript check:
+
+```bash
+npx tsc --noEmit
+```
