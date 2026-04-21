@@ -22,7 +22,7 @@ export default async function AboutPage(props: PageProps<'/[locale]/about'>) {
 
       <section className="section-sm">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: 48, alignItems: 'start' }}>
+          <div className="bio-grid">
             <div className="avatar-block" style={{ maxWidth: 280 }}>
               <span className="initials">AZ</span>
             </div>

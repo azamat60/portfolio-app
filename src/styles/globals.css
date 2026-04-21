@@ -988,6 +988,14 @@ ul {
   flex-shrink: 0;
 }
 
+/* ---------- About bio grid ---------- */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 /* ---------- About teaser ---------- */
 .about-teaser {
   display: grid;
@@ -1627,9 +1635,20 @@ ul {
   color: var(--accent);
 }
 
+/* ---------- About bio grid (responsive via class) ---------- */
+.about-bio-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3-compact {
     grid-template-columns: repeat(2, 1fr);
   }
   .about-teaser,
@@ -1639,6 +1658,15 @@ ul {
   .project-hero-detail {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  .about-bio-grid,
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .avatar-block {
+    max-width: 200px;
+    aspect-ratio: 1;
   }
   .tl-entry {
     grid-template-columns: 1fr;
@@ -1654,24 +1682,64 @@ ul {
     aspect-ratio: 16 / 10;
     grid-row: auto;
   }
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .about-teaser {
+    padding: 32px 24px;
+  }
 }
 
 @media (max-width: 600px) {
   .container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
   h1 {
-    font-size: 36px;
+    font-size: 32px;
   }
   h2 {
-    font-size: 26px;
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .hero {
+    padding: 48px 0 40px;
   }
   .hero-tagline {
-    font-size: 28px;
+    font-size: 26px;
+  }
+  .hero-sub {
+    font-size: 15px;
+  }
+  .hero-below {
+    margin-top: 36px;
+  }
+  .hero-meta {
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 32px;
+  }
+  .hero-meta span {
+    width: 100%;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-cta .btn {
+    justify-content: center;
   }
   .grid-3,
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+  .grid-3-compact {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
   .menu-btn {
     display: flex;
@@ -1688,28 +1756,121 @@ ul {
   .mobile-nav .nav-link {
     display: block;
   }
+  .page-title {
+    padding: 40px 0 28px;
+  }
   .page-title h1 {
-    font-size: 36px;
+    font-size: 30px;
+  }
+  .page-title p {
+    font-size: 15px;
   }
   .project-hero h1,
   .project-hero-detail h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
-  .hero-meta {
-    gap: 14px;
-    justify-content: flex-start;
-  }
-  .hero-meta span {
-    width: 100%;
+  .project-hero .lead,
+  .project-hero-detail .lead {
+    font-size: 16px;
   }
   .filters {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .contact-form {
-    padding: 24px;
+    padding: 20px 16px;
   }
   .project-body {
-    padding: 18px;
+    padding: 14px;
+  }
+  .terminal-body {
+    padding: 16px 16px 20px;
+    font-size: 12px;
+    min-height: auto;
+  }
+  .term-line {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .chrome-meta {
+    display: none;
+  }
+  .terminal-wrap::before {
+    inset: -20px;
+  }
+  .about-teaser {
+    padding: 24px 16px;
+  }
+  .about-bio-grid,
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .avatar-block {
+    max-width: 120px;
+  }
+  .section {
+    padding: 32px 0;
+  }
+  .section-sm {
+    padding: 36px 0;
+  }
+  .section-head {
+    margin-bottom: 24px;
+  }
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .tech-item {
+    padding: 12px;
+    gap: 8px;
+  }
+  .tech-name {
+    font-size: 12px;
+  }
+  .tech-years {
+    display: none;
+  }
+  .timeline {
+    padding-left: 20px;
+  }
+  .tl-entry {
+    padding-bottom: 28px;
+  }
+  .tl-entry::before {
+    left: -20px;
+    width: 12px;
+    height: 12px;
+  }
+  .contact-card {
+    padding: 14px;
+    gap: 12px;
+  }
+  .footer {
+    margin-top: 48px;
+    padding: 28px 0;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .proj-meta-card {
+    padding: 16px;
+  }
+  .content-grid {
+    gap: 32px;
+  }
+  .pcc-body {
+    padding: 10px 12px 12px;
+  }
+  .pcc-name {
+    font-size: 13px;
+  }
+  .pcc-desc {
+    font-size: 11px;
+    -webkit-line-clamp: 2;
   }
 }

@@ -104,7 +104,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
                   <span className="teaser-stat-label">years exp</span>
                 </div>
                 <div className="teaser-stat">
-                  <span className="teaser-stat-value">10+</span>
+                  <span className="teaser-stat-value">20+</span>
                   <span className="teaser-stat-label">projects</span>
                 </div>
                 <div className="teaser-stat">
