@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/audio-trimmer/:path*",
+      "destination": "https://audio-trimmer-pi.vercel.app/:path*"
+    },
+    {
+      "source": "/audio-trimmer",
+      "destination": "https://audio-trimmer-pi.vercel.app"
+    }
+  ]
+}
