@@ -14,8 +14,13 @@
 
   --accent: #00ff88;
   --accent-dim: #00cc6e;
+  --accent-hover: #1aff95;
+  --accent-contrast: #00110a;
   --accent-soft: rgba(0, 255, 136, 0.12);
+  --accent-soft-strong: rgba(0, 255, 136, 0.15);
+  --accent-border: rgba(0, 255, 136, 0.3);
   --accent-glow: rgba(0, 255, 136, 0.25);
+  --accent-bg-glow: rgba(0, 255, 136, 0.06);
 
   --cyan: #38bdf8;
   --cyan-soft: rgba(56, 189, 248, 0.12);
@@ -33,6 +38,18 @@
   --radius: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
+}
+
+.theme-blue {
+  --accent: #38bdf8;
+  --accent-dim: #0284c7;
+  --accent-hover: #7dd3fc;
+  --accent-contrast: #03111d;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  --accent-soft-strong: rgba(56, 189, 248, 0.16);
+  --accent-border: rgba(56, 189, 248, 0.34);
+  --accent-glow: rgba(56, 189, 248, 0.28);
+  --accent-bg-glow: rgba(56, 189, 248, 0.07);
 }
 
 /* ---------- Base ---------- */
@@ -121,7 +138,7 @@ ul {
   background:
     radial-gradient(
       60% 40% at 15% 10%,
-      rgba(0, 255, 136, 0.06),
+      var(--accent-bg-glow),
       transparent 60%
     ),
     radial-gradient(
@@ -301,12 +318,12 @@ ul {
 
 .btn-primary {
   background: var(--accent);
-  color: #00110a;
+  color: var(--accent-contrast);
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: #1aff95;
+  background: var(--accent-hover);
   box-shadow: 0 0 24px var(--accent-glow);
   transform: translateY(-1px);
 }
@@ -677,7 +694,7 @@ ul {
 }
 .project-tag.pet {
   color: var(--accent);
-  border-color: rgba(0, 255, 136, 0.3);
+  border-color: var(--accent-border);
 }
 
 .project-body {
@@ -876,7 +893,7 @@ ul {
   font-family: var(--mono);
   font-size: 14px;
   box-shadow:
-    0 0 0 1px rgba(0, 255, 136, 0.06),
+    0 0 0 1px var(--accent-bg-glow),
     0 40px 80px -20px rgba(0, 0, 0, 0.6),
     0 0 60px -20px var(--accent-glow);
   z-index: 1;
@@ -1227,7 +1244,7 @@ ul {
 }
 
 .filter-btn.active .filter-count {
-  background: rgba(0, 255, 136, 0.15);
+  background: var(--accent-soft-strong);
 }
 
 /* ---------- Grids ---------- */
@@ -1673,7 +1690,7 @@ ul {
 .form-success {
   padding: 14px;
   background: var(--accent-soft);
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  border: 1px solid var(--accent-border);
   border-radius: 8px;
   color: var(--accent);
   font-family: var(--mono);

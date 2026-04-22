@@ -393,7 +393,7 @@ export default function Hero() {
         borderBottom: "1px solid #ffffff06",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#fff", fontSize: "0.875rem" }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#00ff88", boxShadow: "0 0 8px #00ff88aa" }} />
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 8px var(--accent-glow)" }} />
           azamat.dev
         </div>
         <div style={{ display: "flex", gap: 32 }}>
@@ -402,7 +402,7 @@ export default function Hero() {
               color: i === 0 ? "#fff" : "#444",
               textDecoration: "none",
               fontSize: "0.85rem",
-              borderBottom: i === 0 ? "1px solid #00ff88" : "none",
+              borderBottom: i === 0 ? "1px solid var(--accent)" : "none",
               paddingBottom: 2,
             }}>{item}</a>
           ))}
@@ -431,11 +431,11 @@ export default function Hero() {
           <span style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "5px 14px",
-            border: "1px solid #00ff8828",
-            background: "#00ff8808",
-            color: "#00ff88", fontSize: "0.68rem", letterSpacing: "0.22em",
+            border: "1px solid var(--accent-border)",
+            background: "var(--accent-soft)",
+            color: "var(--accent)", fontSize: "0.68rem", letterSpacing: "0.22em",
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#00ff88", animation: "pulse 2s infinite" }} />
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)", animation: "pulse 2s infinite" }} />
             AVAILABLE FOR WORK · ANTALYA, TURKEY
           </span>
         </div>
@@ -447,7 +447,7 @@ export default function Hero() {
           ...fade(0.5),
         }}>
           <span style={{ color: "#fff", display: "block" }}>Azamat</span>
-          <span style={{ display: "block", WebkitTextStroke: "2px #00ff88", color: "transparent" }}>
+          <span style={{ display: "block", WebkitTextStroke: "2px var(--accent)", color: "transparent" }}>
             Altymyshev
           </span>
         </h1>
@@ -466,9 +466,9 @@ export default function Hero() {
           ...fade(0.9),
         }}>
           I build full-stack products that are{" "}
-          <span style={{ color: "#00ff88" }}>fast to load</span>,{" "}
-          <span style={{ color: "#00ff88" }}>easy to use</span>, and{" "}
-          <span style={{ color: "#00ff88" }}>simple to maintain</span>.
+          <span style={{ color: "var(--accent)" }}>fast to load</span>,{" "}
+          <span style={{ color: "var(--accent)" }}>easy to use</span>, and{" "}
+          <span style={{ color: "var(--accent)" }}>simple to maintain</span>.
         </p>
 
         <div style={{
@@ -476,7 +476,7 @@ export default function Hero() {
           ...fade(1.1),
         }}>
           <button style={{
-            background: "#00ff88", color: "#000", border: "none",
+            background: "var(--accent)", color: "var(--accent-contrast)", border: "none",
             padding: "13px 30px", fontSize: "0.85rem",
             fontWeight: 700, fontFamily: "inherit", cursor: "pointer",
             letterSpacing: "0.05em",
@@ -504,7 +504,7 @@ export default function Hero() {
 
       <style>{`
         @keyframes pulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 4px #00ff88; }
+          0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--accent); }
           50% { opacity: 0.4; box-shadow: none; }
         }
       `}</style>

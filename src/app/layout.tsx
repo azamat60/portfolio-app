@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 
+const themeValue = process.env.NEXT_PUBLIC_PORTFOLIO_THEME ?? process.env.PORTFOLIO_THEME;
+const theme = themeValue === "blue" ? "blue" : "green";
+
 const geist = Geist({
   subsets: ["latin", "latin-ext"],
   variable: "--font-sans",
@@ -26,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={`${geist.variable} ${jetbrainsMono.variable}`}>
+    <html className={`${geist.variable} ${jetbrainsMono.variable} theme-${theme}`}>
       <body>
         <div className="bg-glow" aria-hidden />
         {children}
