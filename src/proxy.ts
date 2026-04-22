@@ -1,9 +1,11 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { routing } from './i18n/routing'
 
-const handleLocale = createMiddleware(routing)
+const handleLocale = createMiddleware({
+  locales: ['en', 'ru'],
+  defaultLocale: 'en',
+})
 
 export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/audio-trimmer')) {
@@ -13,6 +15,9 @@ export function proxy(request: NextRequest) {
     return NextResponse.next()
   }
   if (request.nextUrl.pathname.startsWith('/signal-pulse')) {
+    return NextResponse.next()
+  }
+  if (request.nextUrl.pathname.startsWith('/game-of-life')) {
     return NextResponse.next()
   }
   return handleLocale(request)

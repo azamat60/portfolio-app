@@ -23,6 +23,14 @@
     {
       "source": "/signal-pulse",
       "destination": "https://signal-pulse.vercel.app"
+    },
+    {
+      "source": "/game-of-life/:path*",
+      "destination": "https://game-of-life-three-steel.vercel.app/:path*"
+    },
+    {
+      "source": "/game-of-life",
+      "destination": "https://game-of-life-three-steel.vercel.app"
     }
   ]
 }
