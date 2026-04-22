@@ -9,7 +9,12 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "home" });
-  const featured = getLocalizedProjects(locale).slice(0, 6);
+  const featured = getLocalizedProjects(locale)
+    .toSorted((a, b) => {
+      if (a.type === b.type) return 0;
+      return a.type === "pet" ? -1 : 1;
+    })
+    .slice(0, 9);
 
   return (
     <div className="page">
