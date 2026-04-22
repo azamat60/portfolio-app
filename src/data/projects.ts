@@ -51,7 +51,7 @@ export const projects: Project[] = [
       'Импорт CSV/XLSX для массовой загрузки маршрутов и данных учеников',
       'Инструменты сравнения маршрутов для выявления неэффективности',
     ],
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/csv-auto-dashboard',
   },
   {
     id: 'bidsheet',
