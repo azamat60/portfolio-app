@@ -31,6 +31,14 @@
     {
       "source": "/game-of-life",
       "destination": "https://game-of-life-three-steel.vercel.app"
+    },
+    {
+      "source": "/habbit-tracker/:path*",
+      "destination": "https://habbit-tracker-lake.vercel.app/:path*"
+    },
+    {
+      "source": "/habbit-tracker",
+      "destination": "https://habbit-tracker-lake.vercel.app"
     }
   ]
 }

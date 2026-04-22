@@ -20,6 +20,9 @@ export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/game-of-life')) {
     return NextResponse.next()
   }
+  if (request.nextUrl.pathname.startsWith('/habbit-tracker')) {
+    return NextResponse.next()
+  }
   return handleLocale(request)
 }
 
