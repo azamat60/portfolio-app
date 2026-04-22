@@ -7,6 +7,14 @@
     {
       "source": "/audio-trimmer",
       "destination": "https://audio-trimmer-pi.vercel.app"
+    },
+    {
+      "source": "/decision-simulator/:path*",
+      "destination": "https://decision-simulator-mauve.vercel.app/:path*"
+    },
+    {
+      "source": "/decision-simulator",
+      "destination": "https://decision-simulator-mauve.vercel.app"
     }
   ]
 }

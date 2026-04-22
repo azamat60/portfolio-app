@@ -10,6 +10,9 @@ export function proxy(req: NextRequest) {
   if (req.nextUrl.pathname.startsWith("/audio-trimmer")) {
     return NextResponse.next();
   }
+  if (req.nextUrl.pathname.startsWith("/decision-simulator")) {
+    return NextResponse.next();
+  }
   return intlMiddleware(req);
 }
 
