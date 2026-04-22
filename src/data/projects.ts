@@ -219,7 +219,7 @@ export const projects: Project[] = [
       'Переключатель темы и keyboard shortcuts для быстрой навигации',
     ],
     demoUrl: 'https://www.azamatdev.com/habbit-tracker',
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/habbit-tracker',
   },
   {
     id: 'game-of-life',
@@ -257,7 +257,7 @@ export const projects: Project[] = [
       'Типизированная модель сетки и детерминированная логика поколений',
     ],
     demoUrl: 'https://www.azamatdev.com/game-of-life',
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/game_of_life',
   },
   {
     id: 'signal-pulse',
@@ -295,7 +295,7 @@ export const projects: Project[] = [
       'Запросы к публичным API из браузера с устойчивостью к временным ошибкам источников',
     ],
     demoUrl: 'https://www.azamatdev.com/signal-pulse',
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/signal-pulse',
   },
   {
     id: 'audio-trimmer',
@@ -333,7 +333,7 @@ export const projects: Project[] = [
       'Экспорт WAV через OfflineAudioContext',
     ],
     demoUrl: 'https://www.azamatdev.com/audio-trimmer',
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/audio-trimmer',
   },
   {
     id: 'decision-simulator',
@@ -371,7 +371,7 @@ export const projects: Project[] = [
       'Полностью клиентское приложение — данные в localStorage, бэкенд не нужен',
     ],
     demoUrl: 'https://www.azamatdev.com/decision-simulator',
-    sourceUrl: null,
+    sourceUrl: 'https://github.com/azamat60/decision-simulator',
   },
 ]
 

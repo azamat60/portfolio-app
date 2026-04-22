@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import Image from "next/image";
 import Terminal from "@/components/Terminal/Terminal";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { getLocalizedProjects } from "@/data/projects";
@@ -89,7 +90,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
         <div className="container">
           <div className="about-teaser">
             <div className="avatar-block">
-              <span className="initials">AZ</span>
+              <Image src="/avatar_square.png" alt="Azamat Altymyshev" fill sizes="(max-width: 900px) 120px, 280px" className="avatar-photo" />
             </div>
             <div>
               <div className="eyebrow">/about</div>

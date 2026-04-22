@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import type { Project } from '@/data/projects'
+import GitHubButton from '@/components/GitHubButton/GitHubButton'
 
 interface Props {
   project: Project
@@ -63,13 +64,16 @@ export default function ProjectCard({ project, locale, delay = 0, compact = fals
   }
 
   return (
-    <Link
-      href={href}
-      target={isExternal ? '_blank' : undefined}
-      rel={isExternal ? 'noopener noreferrer' : undefined}
+    <article
       className="card project-card reveal"
       style={{ '--c1': project.colors[0], '--c2': project.colors[1], animationDelay: `${delay}ms` } as React.CSSProperties}
     >
+      <Link
+        href={href}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        className="project-card-main"
+      >
       <div
         className={`project-thumb${project.image ? ' has-image' : ''}`}
         style={project.image ? {
@@ -77,12 +81,12 @@ export default function ProjectCard({ project, locale, delay = 0, compact = fals
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
         } : undefined}
-      >
-        <span className={`project-tag ${project.type}`}>
-          {project.type === 'pet' ? 'Pet' : 'Commercial'}
-        </span>
-        <span className="project-initials">{project.initials}</span>
-      </div>
+        >
+          <span className={`project-tag ${project.type}`}>
+            {project.type === 'pet' ? 'Pet' : 'Commercial'}
+          </span>
+          <span className="project-initials">{project.initials}</span>
+        </div>
       <div className="project-body">
         <div className="project-title">
           <h3 className="project-main-link">{project.name}</h3>
@@ -100,6 +104,10 @@ export default function ProjectCard({ project, locale, delay = 0, compact = fals
           )}
         </div>
       </div>
-    </Link>
+      </Link>
+      {project.sourceUrl && (
+        <GitHubButton href={project.sourceUrl} variant="card" />
+      )}
+    </article>
   )
 }

@@ -1,4 +1,5 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 import { getExperience, getTechStack } from '@/data/experience'
 import TechIcon from '@/components/TechIcon/TechIcon'
 
@@ -24,7 +25,7 @@ export default async function AboutPage(props: PageProps<'/[locale]/about'>) {
         <div className="container">
           <div className="bio-grid">
             <div className="avatar-block" style={{ maxWidth: 280 }}>
-              <span className="initials">AZ</span>
+              <Image src="/avatar_square.png" alt="Azamat Altymyshev" fill sizes="(max-width: 900px) 120px, 280px" className="avatar-photo" />
             </div>
             <div>
               <div className="eyebrow">/bio</div>

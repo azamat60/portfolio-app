@@ -12,7 +12,10 @@ export default function ProjectsPage() {
   const locale = useLocale()
   const [filter, setFilter] = useState<Filter>('all')
 
-  const allProjects = getLocalizedProjects(locale)
+  const allProjects = getLocalizedProjects(locale).toSorted((a, b) => {
+    if (a.type === b.type) return 0
+    return a.type === 'pet' ? -1 : 1
+  })
 
   const counts = {
     all: allProjects.length,
