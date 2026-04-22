@@ -15,6 +15,14 @@
     {
       "source": "/decision-simulator",
       "destination": "https://decision-simulator-mauve.vercel.app"
+    },
+    {
+      "source": "/signal-pulse/:path*",
+      "destination": "https://signal-pulse.vercel.app/:path*"
+    },
+    {
+      "source": "/signal-pulse",
+      "destination": "https://signal-pulse.vercel.app"
     }
   ]
 }
