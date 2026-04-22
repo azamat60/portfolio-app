@@ -24,6 +24,8 @@
 
   --cyan: #38bdf8;
   --cyan-soft: rgba(56, 189, 248, 0.12);
+  --cyan-border: rgba(56, 189, 248, 0.3);
+  --cyan-glow: rgba(56, 189, 248, 0.22);
 
   --red: #ff5f57;
   --yellow: #febc2e;
@@ -50,6 +52,23 @@
   --accent-border: rgba(56, 189, 248, 0.34);
   --accent-glow: rgba(56, 189, 248, 0.28);
   --accent-bg-glow: rgba(56, 189, 248, 0.07);
+}
+
+.theme-orange-blue {
+  --accent: #fb923c;
+  --accent-dim: #ea580c;
+  --accent-hover: #fdba74;
+  --accent-contrast: #1b0b02;
+  --accent-soft: rgba(251, 146, 60, 0.13);
+  --accent-soft-strong: rgba(251, 146, 60, 0.18);
+  --accent-border: rgba(251, 146, 60, 0.36);
+  --accent-glow: rgba(251, 146, 60, 0.28);
+  --accent-bg-glow: rgba(251, 146, 60, 0.07);
+
+  --cyan: #60a5fa;
+  --cyan-soft: rgba(96, 165, 250, 0.14);
+  --cyan-border: rgba(96, 165, 250, 0.42);
+  --cyan-glow: rgba(96, 165, 250, 0.3);
 }
 
 /* ---------- Base ---------- */
@@ -143,7 +162,7 @@ ul {
     ),
     radial-gradient(
       50% 35% at 90% 20%,
-      rgba(56, 189, 248, 0.05),
+      var(--cyan-soft),
       transparent 60%
     );
 }
@@ -690,11 +709,20 @@ ul {
 
 .project-tag.commercial {
   color: var(--cyan);
-  border-color: rgba(56, 189, 248, 0.3);
+  border-color: var(--cyan-border);
 }
 .project-tag.pet {
   color: var(--accent);
   border-color: var(--accent-border);
+}
+
+.theme-orange-blue .project-card:hover,
+.theme-orange-blue .project-card-compact:hover {
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 0 1px var(--cyan-soft),
+    0 20px 40px -20px var(--accent-glow),
+    0 0 34px -18px var(--cyan-glow);
 }
 
 .project-body {

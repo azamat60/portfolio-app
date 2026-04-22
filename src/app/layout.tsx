@@ -3,7 +3,7 @@ import { Geist, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 
 const themeValue = process.env.NEXT_PUBLIC_PORTFOLIO_THEME ?? process.env.PORTFOLIO_THEME;
-const theme = themeValue === "blue" ? "blue" : "green";
+const theme = themeValue === "blue" || themeValue === "orange-blue" ? themeValue : "green";
 
 const geist = Geist({
   subsets: ["latin", "latin-ext"],

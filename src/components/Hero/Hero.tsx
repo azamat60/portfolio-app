@@ -402,7 +402,7 @@ export default function Hero() {
               color: i === 0 ? "#fff" : "#444",
               textDecoration: "none",
               fontSize: "0.85rem",
-              borderBottom: i === 0 ? "1px solid var(--accent)" : "none",
+              borderBottom: i === 0 ? "1px solid var(--cyan)" : "none",
               paddingBottom: 2,
             }}>{item}</a>
           ))}
@@ -431,7 +431,7 @@ export default function Hero() {
           <span style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "5px 14px",
-            border: "1px solid var(--accent-border)",
+            border: "1px solid var(--cyan-border)",
             background: "var(--accent-soft)",
             color: "var(--accent)", fontSize: "0.68rem", letterSpacing: "0.22em",
           }}>
@@ -467,7 +467,7 @@ export default function Hero() {
         }}>
           I build full-stack products that are{" "}
           <span style={{ color: "var(--accent)" }}>fast to load</span>,{" "}
-          <span style={{ color: "var(--accent)" }}>easy to use</span>, and{" "}
+          <span style={{ color: "var(--cyan)" }}>easy to use</span>, and{" "}
           <span style={{ color: "var(--accent)" }}>simple to maintain</span>.
         </p>
 
@@ -483,7 +483,7 @@ export default function Hero() {
           }}>View projects →</button>
           <button style={{
             background: "transparent", color: "#aaa",
-            border: "1px solid #1a2030", padding: "13px 30px",
+            border: "1px solid var(--cyan-border)", padding: "13px 30px",
             fontSize: "0.85rem", fontFamily: "inherit", cursor: "pointer",
           }}>Get in touch</button>
         </div>
