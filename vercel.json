@@ -39,6 +39,14 @@
     {
       "source": "/habbit-tracker",
       "destination": "https://habbit-tracker-lake.vercel.app"
+    },
+    {
+      "source": "/csv-auto-dashboard/:path*",
+      "destination": "https://csv-auto-dashboard.vercel.app/:path*"
+    },
+    {
+      "source": "/csv-auto-dashboard",
+      "destination": "https://csv-auto-dashboard.vercel.app"
     }
   ]
 }

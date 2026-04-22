@@ -23,6 +23,9 @@ export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/habbit-tracker')) {
     return NextResponse.next()
   }
+  if (request.nextUrl.pathname.startsWith('/csv-auto-dashboard')) {
+    return NextResponse.next()
+  }
   return handleLocale(request)
 }
 
